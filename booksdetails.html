@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+</head>
+<body>
+
+<h2>Book Details</h2>
+<p id="titleFirstBook"></p>
+<p id="authorSecondBook"></p>
+<p id="allGenres"></p>
+
+<script>
+    const data = {
+        "Books": [
+            {
+                "title": "The Great Gatsby",
+                "author": "F. Scott Fitzgerald",
+                "publicationYear": 1925,
+                "genres": ["Fiction", "Classics"]
+            },
+            {
+                "title": "To Kill a Mockingbird",
+                "author": "Harper Lee",
+                "publicationYear": 1960,
+                "genres": ["Fiction", "Coming-of-Age"]
+            }
+        ]
+    };
+
+    document.getElementById("titleFirstBook").textContent = "Title of the first book: " + data.Books[0].title;
+
+    document.getElementById("authorSecondBook").textContent = "Author of the second book: " + data.Books[1].author;
+
+    let allGenres = [];
+    data.Books.forEach(book => {
+        allGenres = allGenres.concat(book.genres);
+    });
+    document.getElementById("allGenres").textContent = "Genres of all books: " + Array.from(new Set(allGenres)).join(", ");
+
+</script>
+
+</body>
+</html>
